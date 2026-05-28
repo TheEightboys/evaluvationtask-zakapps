@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cart - Abokichi</title>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="utility-bar">
+    <div class="util-left"><span>USD</span><span>Stores</span></div>
+    <div class="util-right"><span>Login / Register</span></div>
+  </div>
+
+  <header class="site-header">
+    <a href="index.html" class="logo"><span class="logo-mark">&#9678;</span><span class="logo-text">ABOKICHI</span></a>
+    <nav class="main-nav">
+      <a href="products.html">Shop</a>
+      <a href="#">Our story</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-icons">
+      <span>&#128269;</span><span>&#9825;</span>
+      <a href="cart.html" class="cart-icon">&#128717;<span class="cart-count">0</span></a>
+    </div>
+  </header>
+
+  <section class="order-placed">
+    <h1>Your Cart</h1>
+    <p>Items in cart: <strong id="cartItems">0</strong></p>
+    <div id="cartList" style="max-width:860px;margin:20px auto;text-align:left"></div>
+    <div class="cta-row">
+      <button id="clearCart" class="btn btn-outline">Clear Cart</button>
+      <a href="products.html" class="btn btn-outline">Continue Shopping</a>
+      <a href="order.html" class="btn btn-dark">Checkout</a>
+    </div>
+  </section>
+
+  <footer class="badge-bar">
+    <span>Vegan</span><span>KETO-friendly</span><span>Non-GMO</span>
+    <span>Organic miso</span><span>Gluten-Free</span>
+  </footer>
+
+  <script src="js/cart.js"></script>
+  <script>
+    (function () {
+      var items = document.getElementById('cartItems');
+      var list = document.getElementById('cartList');
+
+      function row(item){
+        var total = item.price * item.qty;
+        return '<div style="display:grid;grid-template-columns:90px 1fr auto auto auto;gap:14px;align-items:center;border:1px solid #e3e3e0;padding:10px;margin-bottom:10px;background:#fff">' +
+          '<img src="' + item.image + '" alt="' + item.name + '" style="width:90px;height:90px;object-fit:cover;background:#f4f4f0" />' +
+          '<div><div style="font-weight:600">' + item.name + '</div><div style="color:#666">$' + item.price.toFixed(2) + '</div></div>' +
+          '<button data-dec="' + item.id + '" class="btn btn-outline" style="padding:6px 12px">-</button>' +
+          '<div style="min-width:30px;text-align:center;font-weight:700">' + item.qty + '</div>' +
+          '<button data-inc="' + item.id + '" class="btn btn-outline" style="padding:6px 12px">+</button>' +
+          '<div style="grid-column:1/-1;text-align:right;font-weight:700">Item total: $' + total.toFixed(2) + '</div>' +
+          '</div>';
+      }
+
+      function render() {
+        var cartItems = window.Cart.getItems();
+        items.textContent = String(window.Cart.get());
+        if(!cartItems.length){
+          list.innerHTML = '<p style="text-align:center;color:#666">Your cart is empty.</p>';
+          return;
+        }
+        list.innerHTML = cartItems.map(row).join('');
+        var grand = cartItems.reduce(function(sum, i){ return sum + (i.price * i.qty); }, 0);
+        list.innerHTML += '<p style="text-align:right;font-size:20px;font-weight:700;margin-top:14px">Grand total: $' + grand.toFixed(2) + '</p>';
+
+        list.querySelectorAll('[data-inc]').forEach(function(btn){
+          btn.addEventListener('click', function(){
+            var id = parseInt(btn.getAttribute('data-inc'), 10);
+            var item = window.Cart.getItems().find(function(i){ return i.id === id; });
+            if(item){ window.Cart.setQty(id, item.qty + 1); render(); }
+          });
+        });
+        list.querySelectorAll('[data-dec]').forEach(function(btn){
+          btn.addEventListener('click', function(){
+            var id = parseInt(btn.getAttribute('data-dec'), 10);
+            var item = window.Cart.getItems().find(function(i){ return i.id === id; });
+            if(item){ window.Cart.setQty(id, item.qty - 1); render(); }
+          });
+        });
+      }
+
+      document.getElementById('clearCart').addEventListener('click', function () {
+        window.Cart.reset();
+        render();
+      });
+      document.addEventListener('DOMContentLoaded', render);
+      render();
+    })();
+  </script>
+</body>
+</html>

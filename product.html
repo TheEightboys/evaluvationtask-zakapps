@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Product - Abokichi</title>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="utility-bar">
+    <div class="util-left"><span>USD &#9662;</span><span>Stores</span></div>
+    <div class="util-right"><span>Login / Register</span></div>
+  </div>
+
+  <header class="site-header">
+    <a href="index.html" class="logo"><span class="logo-mark">&#9678;</span><span class="logo-text">ABOKICHI</span></a>
+    <nav class="main-nav">
+      <a href="products.html">Shop &#9662;</a>
+      <a href="#">Our story</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-icons">
+      <span>&#128269;</span><span>&#9825;</span>
+      <a href="cart.html" class="cart-icon">&#128717;<span class="cart-count">0</span></a>
+    </div>
+  </header>
+
+  <nav class="breadcrumb"><a href="products.html">Shop</a> &gt; <span id="bcName">Product</span></nav>
+
+  <section class="detail">
+    <div class="detail-gallery">
+      <div class="main-image"><img id="mainImg" src="" alt="" /></div>
+      <div class="thumbs">
+        <button class="thumb-arrow">&lt;</button>
+        <div class="thumb-row" id="thumbRow"></div>
+        <button class="thumb-arrow">&gt;</button>
+      </div>
+    </div>
+
+    <div class="detail-info">
+      <h1 id="pName"></h1>
+      <div class="prices">
+        <span class="price" id="pPrice"></span>
+        <span class="price-old" id="pOldPrice"></span>
+      </div>
+      <div class="rating-row">
+        <span class="stars" id="pStars"></span>
+        <span class="divider">|</span>
+        <span id="pReviews"></span>
+      </div>
+      <p class="desc" id="pDesc"></p>
+
+      <div class="cta-row">
+        <button id="addCart" class="btn btn-outline">ADD TO CART</button>
+        <button id="buyNow" class="btn btn-dark">Buy Now</button>
+      </div>
+      <p class="wishlist">Fav WISHLIST</p>
+      <p class="share">SHARE: <span>f</span> <span>X</span> <span>P</span></p>
+    </div>
+  </section>
+
+  <section class="tabs">
+    <div class="tab-headers">
+      <button class="tab-h active" data-tab="desc">DESCRIPTION</button>
+      <button class="tab-h" data-tab="rev">REVIEWS</button>
+      <button class="tab-h" data-tab="vid">VIDEOS</button>
+      <button class="tab-h" data-tab="com">COMMENTS</button>
+    </div>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab-desc"><p id="longDesc"></p></div>
+      <div class="tab-pane" id="tab-rev"><p>No reviews yet.</p></div>
+      <div class="tab-pane" id="tab-vid"><p>No videos yet.</p></div>
+      <div class="tab-pane" id="tab-com"><p>No comments yet.</p></div>
+    </div>
+  </section>
+
+  <footer class="badge-bar">
+    <span>&#10003; Vegan</span><span>&#10003; KETO-friendly</span><span>&#10003; Non-GMO</span>
+    <span>&#10003; Organic miso</span><span>&#10003; Gluten-Free</span>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Products - Abokichi</title>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="utility-bar">
+    <div class="util-left"><span>USD &#9662;</span><span>Stores</span></div>
+    <div class="util-right"><span>Login / Register</span></div>
+  </div>
+
+  <header class="site-header">
+    <a href="index.html" class="logo"><span class="logo-mark">&#9678;</span><span class="logo-text">ABOKICHI</span></a>
+    <nav class="main-nav">
+      <a href="products.html">Shop &#9662;</a>
+      <a href="#">Our story</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-icons">
+      <span>&#128269;</span><span>&#9825;</span>
+      <a href="cart.html" class="cart-icon">&#128717;<span class="cart-count">0</span></a>
+    </div>
+  </header>
+
+  <section class="page-banner">
+    <div class="banner-img" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=80')"></div>
+    <h1 class="banner-title">PRODUCTS</h1>
+  </section>
+
+  <section class="listing">
+    <div class="listing-head">
+      <h2 class="prod-count"><span class="bar-accent"></span>Products (<span id="count">0</span>)</h2>
+      <div class="toolbar">
+        <button id="filterToggle" class="btn-filter">&#9661; Filter</button>
+        <span class="view-toggle">&#9638; &#9776;</span>
+        <div class="sort">
+          <label>Sort By:</label>
+          <select id="sortSelect">
+            <option value="az">Alphabetically, A-Z</option>
+            <option value="za">Alphabetically, Z-A</option>
+            <option value="plh">Price, low to high</option>
+            <option value="phl">Price, high to low</option>
+            <option value="rating">Rating</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div id="filterPanel" class="filter-panel hidden">
+      <div class="filter-col">
+        <h4><span class="bar-accent"></span>Categories</h4>
+        <label><input type="checkbox" class="f-cat" value="Chili oil/Okazu" /> Chili oil/Okazu</label>
+        <label><input type="checkbox" class="f-cat" value="Miso Soup" /> Miso Soup</label>
+        <label><input type="checkbox" class="f-cat" value="Instant Matcha" /> Instant Matcha</label>
+        <label><input type="checkbox" class="f-cat" value="Coffee" /> Coffee</label>
+      </div>
+      <div class="filter-col">
+        <h4><span class="bar-accent"></span>Type</h4>
+        <label><input type="checkbox" class="f-type" value="Single Pack" /> Single Pack</label>
+        <label><input type="checkbox" class="f-type" value="Multi Set" /> Multi Set</label>
+      </div>
+      <div class="filter-col">
+        <h4><span class="bar-accent"></span>Flavours</h4>
+        <label><input type="checkbox" class="f-flav" value="Spicy" /> Spicy</label>
+        <label><input type="checkbox" class="f-flav" value="Mild" /> Mild</label>
+        <label><input type="checkbox" class="f-flav" value="Sweet" /> Sweet</label>
+        <label><input type="checkbox" class="f-flav" value="Umami" /> Umami</label>
+      </div>
+      <div class="filter-col">
+        <h4><span class="bar-accent"></span>Rating</h4>
+        <label><input type="radio" name="rating" class="f-rating" value="0" checked /> All</label>
+        <label><input type="radio" name="rating" class="f-rating" value="5" /> *****</label>
+        <label><input type="radio" name="rating" class="f-rating" value="4" /> **** & up</label>
+        <label><input type="radio" name="rating" class="f-rating" value="3" /> *** & up</label>
+      </div>
+    </div>
+
+    <div id="grid" class="product-grid"></div>
+  </section>
+
+  <footer class="badge-bar">
+    <span>&#10003; Vegan</span><span>&#10003; KETO-friendly</span><span>&#10003; Non-GMO</span>
+    <span>&#10003; Organic miso</span><span>&#10003; Gluten-Free</span>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>
