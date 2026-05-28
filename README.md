@@ -1,4 +1,4 @@
-# Abokichi — ZakApps UI Developer Assessment
+# Abokichi — ZakApps Developer Assessment
 
 Barath A evaluvation task ui clone
 Multi-page e-commerce demo built with **plain HTML, CSS, and vanilla JavaScript** (no frameworks).
